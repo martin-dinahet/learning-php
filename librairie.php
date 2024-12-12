@@ -1,3 +1,5 @@
+<?php
+
 // Définition d'une constante pour le nom de la bibliothèque
 define('LIBRARY_NAME', 'Municipal Library');
 
