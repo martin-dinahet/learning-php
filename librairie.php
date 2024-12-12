@@ -1,14 +1,14 @@
 <?php
 
 // Définition d'une constante pour le nom de la bibliothèque
-define('LIBRARY_NAME', 'Municipal Library');
+define('LIBRARY_NAME', 'Bibliothèque Municipale');
 
 // Initialisation d'une variable avec le nom de l'utilisateur
 $username = 'Alice Martin';
 
 // Fonction anonyme qui affiche un message de bienvenue à l'utilisateur
 $welcome = function($name) {
-  echo "Welcome, $name, to the " . LIBRARY_NAME . "!\n"; // Affichage du message de bienvenue avec le nom de la bibliothèque
+  echo "Bienvenue, $name, à la " . LIBRARY_NAME . "!\n"; // Affichage du message de bienvenue avec le nom de la bibliothèque
 };
 
 // Appel de la fonction de bienvenue avec le nom de l'utilisateur
@@ -17,8 +17,8 @@ $welcome($username);
 // Tableau associatif représentant les livres disponibles avec leur auteur
 $availableBooks = [
   "1984" => "George Orwell",
-  "The Little Prince" => "Antoine de Saint-Exupéry",
-  "The Alchemist" => "Paulo Coelho",
+  "Le Petit Prince" => "Antoine de Saint-Exupéry",
+  "L'Alchimiste" => "Paulo Coelho",
   "Harry Potter" => "J.K. Rowling"
 ];
 
@@ -26,17 +26,17 @@ $availableBooks = [
 $borrowedBooks = [];
 
 // Affichage de la liste des livres disponibles dans la bibliothèque
-echo "\nAvailable Books:\n";
+echo "\nLivres disponibles :\n";
 foreach ($availableBooks as $title => $author) {
-  echo "- $title by $author\n"; // Affichage du titre et de l'auteur de chaque livre
+  echo "- $title par $author\n"; // Affichage du titre et de l'auteur de chaque livre
 }
 
 // Ajout de deux livres à la liste des livres empruntés
 $borrowedBooks[] = "1984";
-$borrowedBooks[] = "The Little Prince";
+$borrowedBooks[] = "Le Petit Prince";
 
 // Affichage des livres empruntés par l'utilisateur
-echo "\nBooks borrowed by $username:\n";
+echo "\nLivres empruntés par $username :\n";
 foreach ($borrowedBooks as $book) {
   echo "- $book\n"; // Affichage de chaque livre emprunté
 }
@@ -44,9 +44,9 @@ foreach ($borrowedBooks as $book) {
 // Vérification du nombre maximal de livres empruntés
 $maxBorrowings = 3;
 if (count($borrowedBooks) > $maxBorrowings) {
-  echo "You cannot borrow more than $maxBorrowings books.\n"; // Message si l'utilisateur dépasse la limite de livres empruntés
+  echo "Vous ne pouvez pas emprunter plus de $maxBorrowings livres.\n"; // Message si l'utilisateur dépasse la limite de livres empruntés
 } else {
-  echo "You can still borrow more books.\n"; // Message indiquant que l'utilisateur peut encore emprunter des livres
+  echo "Vous pouvez encore emprunter des livres.\n"; // Message indiquant que l'utilisateur peut encore emprunter des livres
 }
 
 // Fonction pour retourner un livre emprunté
@@ -56,10 +56,10 @@ function returnBook(&$borrowings, $title) {
   if ($index !== false) {
     // Suppression du livre du tableau si trouvé
     unset($borrowings[$index]);
-    echo "$title has been returned successfully.\n"; // Message de confirmation
+    echo "$title a été retourné avec succès.\n"; // Message de confirmation
   } else {
     // Message d'erreur si le livre n'est pas dans la liste des emprunts
-    echo "$title is not in your list of borrowed books.\n";
+    echo "$title n'est pas dans votre liste de livres empruntés.\n";
   }
 }
 
@@ -70,9 +70,9 @@ returnBook($borrowedBooks, "1984");
 function checkAvailability($books, $title) {
   // Vérifie si le titre existe dans le tableau des livres disponibles
   if (array_key_exists($title, $books)) {
-    echo "$title is available in the " . LIBRARY_NAME . ".\n"; // Livre disponible
+    echo "$title est disponible à la " . LIBRARY_NAME . ".\n"; // Livre disponible
   } else {
-    echo "$title is not available in the " . LIBRARY_NAME . ".\n"; // Livre non disponible
+    echo "$title n'est pas disponible à la " . LIBRARY_NAME . ".\n"; // Livre non disponible
   }
 }
 
@@ -87,11 +87,11 @@ $countBooks = function($books) {
 
 // Appel de la fonction pour obtenir le nombre de livres disponibles
 $numberOfBooks = $countBooks($availableBooks);
-echo "There are $numberOfBooks books in the library.\n"; // Affichage du nombre de livres dans la bibliothèque
+echo "Il y a $numberOfBooks livres dans la bibliothèque.\n"; // Affichage du nombre de livres dans la bibliothèque
 
 // Tri des livres disponibles par ordre alphabétique (selon le titre)
 ksort($availableBooks);
-echo "\nBooks sorted alphabetically:\n";
+echo "\nLivres triés par ordre alphabétique :\n";
 foreach ($availableBooks as $title => $author) {
-  echo "- $title by $author\n"; // Affichage des livres triés par titre
+  echo "- $title par $author\n"; // Affichage des livres triés par titre
 }
