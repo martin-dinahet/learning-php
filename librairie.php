@@ -1,76 +1,76 @@
 <?php
 
-define('NOM_BIBLIOTHEQUE', 'Bibliothèque Municipale');
-$nomUtilisateur = 'Alice Martin';
+define('LIBRARY_NAME', 'Municipal Library');
+$username = 'Alice Martin';
 
-$bienvenue = function($nom) {
-  echo "Bienvenue, $nom, dans la " . NOM_BIBLIOTHEQUE . "!\n";
+$welcome = function($name) {
+  echo "Welcome, $name, to the " . LIBRARY_NAME . "!\n";
 };
 
-$bienvenue($nomUtilisateur);
+$welcome($username);
 
-$livresDisponibles = [
+$availableBooks = [
   "1984" => "George Orwell",
-  "Le Petit Prince" => "Antoine de Saint-Exupéry",
-  "L'Alchimiste" => "Paulo Coelho",
+  "The Little Prince" => "Antoine de Saint-Exupéry",
+  "The Alchemist" => "Paulo Coelho",
   "Harry Potter" => "J.K. Rowling"
 ];
 
-$livresEmpruntes = [];
+$borrowedBooks = [];
 
-echo "\nLivres disponibles :\n";
+echo "\nAvailable Books:\n";
 
-foreach ($livresDisponibles as $titre => $auteur) {
-  echo "- $titre par $auteur\n";
+foreach ($availableBooks as $title => $author) {
+  echo "- $title by $author\n";
 }
 
-$livresEmpruntes[] = "1984";
-$livresEmpruntes[] = "Le Petit Prince";
+$borrowedBooks[] = "1984";
+$borrowedBooks[] = "The Little Prince";
 
-echo "\nLivres empruntés par $nomUtilisateur :\n";
-foreach ($livresEmpruntes as $livre) {
-  echo "- $livre\n";
+echo "\nBooks borrowed by $username:\n";
+foreach ($borrowedBooks as $book) {
+  echo "- $book\n";
 }
 
-$maxEmprunts = 3;
-if (count($livresEmpruntes) > $maxEmprunts) {
-  echo "Vous ne pouvez pas emprunter plus de $maxEmprunts livres.\n";
+$maxBorrowings = 3;
+if (count($borrowedBooks) > $maxBorrowings) {
+  echo "You cannot borrow more than $maxBorrowings books.\n";
 } else {
-  echo "Vous pouvez encore emprunter des livres.\n";
+  echo "You can still borrow more books.\n";
 }
 
-function retournerLivre(&$emprunts, $titre) {
-  $index = array_search($titre, $emprunts);
+function returnBook(&$borrowings, $title) {
+  $index = array_search($title, $borrowings);
   if ($index !== false) {
-    unset($emprunts[$index]);
-    echo "$titre a été retourné avec succès.\n";
+    unset($borrowings[$index]);
+    echo "$title has been returned successfully.\n";
   } else {
-    echo "$titre n'est pas dans votre liste d'emprunts.\n";
+    echo "$title is not in your list of borrowed books.\n";
   }
 }
 
-retournerLivre($livresEmpruntes, "1984");
+returnBook($borrowedBooks, "1984");
 
-function verifierDisponibilite($livres, $titre) {
-  if (array_key_exists($titre, $livres)) {
-    echo "$titre est disponible dans la " . NOM_BIBLIOTHEQUE . ".\n";
+function checkAvailability($books, $title) {
+  if (array_key_exists($title, $books)) {
+    echo "$title is available in the " . LIBRARY_NAME . ".\n";
   } else {
-    echo "$titre n'est pas disponible dans la " . NOM_BIBLIOTHEQUE . ".\n";
+    echo "$title is not available in the " . LIBRARY_NAME . ".\n";
   }
 }
 
-verifierDisponibilite($livresDisponibles, "Harry Potter");
-verifierDisponibilite($livresDisponibles, "Le Monde de Sophie");
+checkAvailability($availableBooks, "Harry Potter");
+checkAvailability($availableBooks, "Sophie's World");
 
-$compterLivres = function($livres) {
-  return count($livres);
+$countBooks = function($books) {
+  return count($books);
 };
 
-$nombreLivres = $compterLivres($livresDisponibles);
-echo "Il reste $nombreLivres livres dans la bibliothèque.\n";
+$numberOfBooks = $countBooks($availableBooks);
+echo "There are $numberOfBooks books in the library.\n";
 
-ksort($livresDisponibles);
-echo "\nLivres triés par ordre alphabétique :\n";
-foreach ($livresDisponibles as $titre => $auteur) {
-  echo "- $titre par $auteur\n";
+ksort($availableBooks);
+echo "\nBooks sorted alphabetically:\n";
+foreach ($availableBooks as $title => $author) {
+  echo "- $title by $author\n";
 }
