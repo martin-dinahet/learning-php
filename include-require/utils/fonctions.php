@@ -1,5 +1,4 @@
 <?php
-function symetry($string)
-{
+function symetry($string) {
 	return $string.' '.strrev($string);
 }
