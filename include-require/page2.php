@@ -1,6 +1,6 @@
 <?php
-require_once 'utils/functions.php';
-require 'utils/model.php';
+require_once 'functions.php';
+require 'model.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,8 +10,8 @@ require 'utils/model.php';
   </head>
 
   <body>
-    <?php include 'views/header.php'; ?>
-    <?php include_once 'views/menu.php'; ?>
+    <?php include 'header.php'; ?>
+    <?php include_once 'menu.php'; ?>
     <h2>Titre page 2</h2>
     <p>
       Bonjour <em><?php echo $capName; ?></em>
@@ -28,6 +28,6 @@ require 'utils/model.php';
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam nesciunt dolore totam autem recusandae, quod saepe nemo ratione distinctio esse beatae adipisci tempora rem! Pariatur dolorum labore non animi quae.
     </p>
-    <?php include 'views/footer.php'; ?>
+    <?php include 'footer.php'; ?>
   </body>
 </html>
