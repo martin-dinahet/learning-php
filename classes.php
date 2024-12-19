@@ -5,13 +5,13 @@ class User {
   public $password;
 
   public function __construct($username, $password) {
-    $this->username = $username;
-    $this->password = $password;
+  $this->username = $username;
+  $this->password = $password;
   }
 
   public function displayInfo() {
-    echo("Username : " . $this->username . "<br>");
-    echo("Password : " . $this->password . "<br>");
+  echo("Username : " . $this->username . "<br>");
+  echo("Password : " . $this->password . "<br>");
   }
 }
 

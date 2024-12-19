@@ -54,12 +54,12 @@ function returnBook(&$borrowings, $title) {
   // Recherche de l'index du livre dans le tableau des livres empruntés
   $index = array_search($title, $borrowings);
   if ($index !== false) {
-    // Suppression du livre du tableau si trouvé
-    unset($borrowings[$index]);
-    echo "$title a été retourné avec succès.\n"; // Message de confirmation
+  // Suppression du livre du tableau si trouvé
+  unset($borrowings[$index]);
+  echo "$title a été retourné avec succès.\n"; // Message de confirmation
   } else {
-    // Message d'erreur si le livre n'est pas dans la liste des emprunts
-    echo "$title n'est pas dans votre liste de livres empruntés.\n";
+  // Message d'erreur si le livre n'est pas dans la liste des emprunts
+  echo "$title n'est pas dans votre liste de livres empruntés.\n";
   }
 }
 
@@ -70,9 +70,9 @@ returnBook($borrowedBooks, "1984");
 function checkAvailability($books, $title) {
   // Vérifie si le titre existe dans le tableau des livres disponibles
   if (array_key_exists($title, $books)) {
-    echo "$title est disponible à la " . LIBRARY_NAME . ".\n"; // Livre disponible
+  echo "$title est disponible à la " . LIBRARY_NAME . ".\n"; // Livre disponible
   } else {
-    echo "$title n'est pas disponible à la " . LIBRARY_NAME . ".\n"; // Livre non disponible
+  echo "$title n'est pas disponible à la " . LIBRARY_NAME . ".\n"; // Livre non disponible
   }
 }
 

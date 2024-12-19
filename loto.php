@@ -3,10 +3,10 @@
 function generateUniqueSortedNumbers($count, $max) {
   $drawnNumbers = [];
   while (count($drawnNumbers) < $count) {
-    $randomNumber = rand(1, $max);
-    if (!in_array($randomNumber, $drawnNumbers)) {
-      $drawnNumbers[] = $randomNumber;
-    }
+  $randomNumber = rand(1, $max);
+  if (!in_array($randomNumber, $drawnNumbers)) {
+    $drawnNumbers[] = $randomNumber;
+  }
   }
   sort($drawnNumbers);
   return implode(' - ', $drawnNumbers);
