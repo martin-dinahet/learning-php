@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Confirmation</title>
+  </head>
+
+  <body>
+    <form action="check.php" method="post">
+      <p>
+        Nom <input type="text" name="name" placeholder="Entrez vos nom et prénom" required /><br />
+        eMail <input type="text" name="email" placeholder="Entrez votre email" required />
+      </p>
+      <p>
+        Cochez les conférences auxquelles vous souhaitez assister :<br />
+        <label>
+          <input type="checkbox" name="conferences[]" value="Accessibilité" />
+          L'accessibilité numérique à l'ère de l'intelligence artificielle </label
+        ><br />
+        <label>
+          <input type="checkbox" name="conferences[]" value="Expliciter l'implicite" />
+          Expliciter l'implicite — je veux juste un site web </label
+        ><br />
+        <label>
+          <input type="checkbox" name="conferences[]" value="La revue de code" />
+          La revue de code (bienveillante) </label
+        ><br />
+        <label>
+          <input type="checkbox" name="conferences[]" value="La sécurité de demain" />
+          La sécurité de demain dans le web d'aujourd'hui : mission impossible ?
+        </label>
+      </p>
+      <p>
+        Avez-vous déjà assisté à des ateliers Paris Web ?<br />
+        <label> <input type="radio" name="alreadyCame" value="Oui" /> Oui </label>
+        <label> <input type="radio" name="alreadyCame" value="Non" /> Non </label>
+      </p>
+      <p>
+        <button type="submit">Envoyer</button>
+      </p>
+    </form>
+  </body>
+</html>
